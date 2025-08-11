@@ -62,13 +62,13 @@ export const NFTMintForm: React.FC<NFTMintFormProps> = ({ onMintSuccess }) => {
 
   return (
     <div className="card bg-base-100 shadow-xl">
-      <div className="card-body">
-        <h2 className="card-title text-2xl mb-6">Mint New NFT</h2>
+      <div className="card-body p-4 sm:p-6">
+        <h2 className="card-title text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6">Mint New NFT</h2>
         
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-medium">NFT Name *</span>
+              <span className="label-text font-medium text-sm sm:text-base">NFT Name *</span>
             </label>
             <input
               type="text"
@@ -76,28 +76,28 @@ export const NFTMintForm: React.FC<NFTMintFormProps> = ({ onMintSuccess }) => {
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Enter NFT name"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full text-sm sm:text-base"
               required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-medium">Description *</span>
+              <span className="label-text font-medium text-sm sm:text-base">Description *</span>
             </label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleInputChange}
               placeholder="Describe your NFT"
-              className="textarea textarea-bordered w-full h-24"
+              className="textarea textarea-bordered w-full h-20 sm:h-24 text-sm sm:text-base"
               required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-medium">Image URI *</span>
+              <span className="label-text font-medium text-sm sm:text-base">Image URI *</span>
             </label>
             <input
               type="url"
@@ -105,17 +105,17 @@ export const NFTMintForm: React.FC<NFTMintFormProps> = ({ onMintSuccess }) => {
               value={formData.imageURI}
               onChange={handleInputChange}
               placeholder="https://example.com/image.jpg"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full text-sm sm:text-base"
               required
             />
             <label className="label">
-              <span className="label-text-alt">Provide a direct link to your image</span>
+              <span className="label-text-alt text-xs sm:text-sm">Provide a direct link to your image</span>
             </label>
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-medium">Price (ETH) *</span>
+              <span className="label-text font-medium text-sm sm:text-base">Price (ETH) *</span>
             </label>
             <input
               type="number"
@@ -125,16 +125,16 @@ export const NFTMintForm: React.FC<NFTMintFormProps> = ({ onMintSuccess }) => {
               placeholder="0.01"
               step="0.001"
               min="0"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full text-sm sm:text-base"
               required
             />
             <label className="label">
-              <span className="label-text-alt">Set the price in ETH</span>
+              <span className="label-text-alt text-xs sm:text-sm">Set the price in ETH</span>
             </label>
           </div>
 
-          <div className="card-actions justify-end pt-4">
-            <button type="submit" className="btn btn-primary">
+          <div className="card-actions justify-end pt-3 sm:pt-4">
+            <button type="submit" className="btn btn-primary btn-sm sm:btn-md w-full sm:w-auto">
               Mint NFT
             </button>
           </div>

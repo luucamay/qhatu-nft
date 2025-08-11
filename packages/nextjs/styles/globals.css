@@ -84,12 +84,20 @@
     border-color: var(--color-gray-200, currentColor);
   }
 
-  p {
-    margin: 1rem 0;
+  html {
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
     min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  p {
+    margin: 1rem 0;
   }
 
   h1,
@@ -98,6 +106,65 @@
   h4 {
     margin-bottom: 0.5rem;
     line-height: 1;
+  }
+}
+
+/* Navbar specific styles to prevent scrolling */
+@layer components {
+  .navbar {
+    min-height: 4rem; /* 64px */
+    height: auto;
+    align-items: center;
+  }
+
+  .navbar-start,
+  .navbar-end {
+    height: 100%;
+    align-items: center;
+  }
+
+  .navbar-start > *,
+  .navbar-end > * {
+    height: fit-content;
+    max-height: 100%;
+  }
+
+  /* Ensure menu items don't overflow */
+  .menu-horizontal > li > a {
+    height: auto;
+    min-height: 2.5rem; /* 40px */
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Button sizing for navbar */
+  .btn-ghost {
+    min-height: 2.5rem;
+    height: auto;
+  }
+}
+
+/* Line clamp utilities for text truncation */
+@layer utilities {
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }
 

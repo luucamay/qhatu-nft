@@ -6,7 +6,7 @@ import { NFTStore } from "~~/components/NFT";
 const NFTStorePage: NextPage = () => {
   return (
     <>
-      <div className="min-h-screen bg-base-200">
+      <div className="min-h-screen bg-base-200 w-full overflow-x-hidden">
         <NFTStore />
       </div>
     </>

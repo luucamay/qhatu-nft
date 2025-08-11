@@ -107,72 +107,76 @@ export const NFTStore: React.FC = () => {
   }, [nft1Metadata.data, nft2Metadata.data, nft3Metadata.data, totalSupply]);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">🖼️ Qhatu NFT Store</h1>
-        <p className="text-xl text-base-content/70">
-          Discover, collect, and trade unique digital assets
-        </p>
-      </div>
+    <div className="w-full overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Hero Section */}
+        <div className="text-center mb-8 sm:mb-12">
+          <p className="text-lg sm:text-xl lg:text-2xl text-base-content/70 leading-relaxed max-w-3xl mx-auto">
+            Discover, collect, and trade unique digital assets
+          </p>
+        </div>
 
-      {/* Mint Section */}
-      <div className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold">Create New NFT</h2>
-          <button
-            className={`btn ${showMintForm ? 'btn-secondary' : 'btn-primary'}`}
-            onClick={() => setShowMintForm(!showMintForm)}
-          >
-            {showMintForm ? 'Cancel' : 'Mint NFT'}
-          </button>
-        </div>
-        
-        {showMintForm && (
-          <div className="max-w-2xl mx-auto">
-            <NFTMintForm onMintSuccess={handleMintSuccess} />
+        {/* Mint Section */}
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">Create New NFT</h2>
+            <button
+              className={`btn ${showMintForm ? 'btn-secondary' : 'btn-primary'} w-full sm:w-auto`}
+              onClick={() => setShowMintForm(!showMintForm)}
+            >
+              {showMintForm ? 'Cancel' : 'Mint NFT'}
+            </button>
           </div>
-        )}
-      </div>
+          
+          {showMintForm && (
+            <div className="max-w-2xl mx-auto">
+              <NFTMintForm onMintSuccess={handleMintSuccess} />
+            </div>
+          )}
+        </div>
 
-      {/* NFT Gallery */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold">NFT Gallery</h2>
-          <div className="text-sm text-base-content/70">
-            {nfts.length > 0 && `${nfts.length} NFT${nfts.length !== 1 ? 's' : ''} available`}
+        {/* NFT Gallery */}
+        <div className="mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">NFT Gallery</h2>
+            <div className="text-sm text-base-content/70 text-center sm:text-right">
+              {nfts.length > 0 && `${nfts.length} NFT${nfts.length !== 1 ? 's' : ''} available`}
+            </div>
           </div>
+          
+          <NFTGrid
+            nfts={nfts}
+            onBuyNFT={handleBuyNFT}
+            currentUserAddress={connectedAddress}
+            isLoading={isLoading}
+          />
         </div>
-        
-        <NFTGrid
-          nfts={nfts}
-          onBuyNFT={handleBuyNFT}
-          currentUserAddress={connectedAddress}
-          isLoading={isLoading}
-        />
-      </div>
 
-      {/* Stats Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-        <div className="stat bg-base-100 shadow-lg rounded-lg">
-          <div className="stat-title">Total NFTs</div>
-          <div className="stat-value text-primary">{totalSupply?.toString() || '0'}</div>
-          <div className="stat-desc">Minted on the blockchain</div>
-        </div>
-        
-        <div className="stat bg-base-100 shadow-lg rounded-lg">
-          <div className="stat-title">For Sale</div>
-          <div className="stat-value text-secondary">
-            {tokensForSale ? tokensForSale.length : '0'}
+        {/* Stats Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12 lg:mt-16">
+          <div className="stat bg-base-100 shadow-lg rounded-lg p-4 sm:p-6">
+            <div className="stat-title text-sm sm:text-base">Total NFTs</div>
+            <div className="stat-value text-primary text-2xl sm:text-3xl lg:text-4xl">
+              {totalSupply?.toString() || '0'}
+            </div>
+            <div className="stat-desc text-xs sm:text-sm">Minted on the blockchain</div>
           </div>
-          <div className="stat-desc">Available for purchase</div>
-        </div>
-        
-        <div className="stat bg-base-100 shadow-lg rounded-lg">
-          <div className="stat-title">Connected</div>
-          <div className="stat-value text-accent">
-            {connectedAddress ? 'Yes' : 'No'}
+          
+          <div className="stat bg-base-100 shadow-lg rounded-lg p-4 sm:p-6">
+            <div className="stat-title text-sm sm:text-base">For Sale</div>
+            <div className="stat-value text-secondary text-2xl sm:text-3xl lg:text-4xl">
+              {tokensForSale ? tokensForSale.length : '0'}
+            </div>
+            <div className="stat-desc text-xs sm:text-sm">Available for purchase</div>
           </div>
-          <div className="stat-desc">Wallet connection status</div>
+          
+          <div className="stat bg-base-100 shadow-lg rounded-lg p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
+            <div className="stat-title text-sm sm:text-base">Connected</div>
+            <div className="stat-value text-accent text-2xl sm:text-3xl lg:text-4xl">
+              {connectedAddress ? 'Yes' : 'No'}
+            </div>
+            <div className="stat-desc text-xs sm:text-sm">Wallet connection status</div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 # Qhatu NFT
 
 A NFT QHATU (store) for collectibles created by artists from the Andes
 
 First collaboration is made with AgujaFilmica and their project "Detras de la pantalla"
-=======
+
 # 🏗 Scaffold-ETH 2
 
 <h4 align="center">
@@ -85,4 +84,3 @@ To know more about its features, check out our [website](https://scaffoldeth.io)
 We welcome contributions to Scaffold-ETH 2!
 
 Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
->>>>>>> 552f360... Initial commit with 🏗️ Scaffold-ETH 2 @ 1.0.3

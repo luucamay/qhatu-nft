@@ -4,6 +4,11 @@ A NFT QHATU (store) for collectibles created by artists from the Andes
 
 First collaboration is made with AgujaFilmica and their project "Detras de la pantalla"
 
+# DEPLOYMENT
+👉 Check the smart contract here:
+https://sepolia.etherscan.io/address/0xa8bA2dEC8CcFe709C5e48D2E0770242F9Aabfb15
+
+
 # 🏗 Scaffold-ETH 2
 
 <h4 align="center">

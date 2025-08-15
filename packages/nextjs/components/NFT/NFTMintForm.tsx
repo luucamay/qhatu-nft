@@ -26,7 +26,7 @@ export const NFTMintForm: React.FC<NFTMintFormProps> = ({ onMintSuccess }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.description || !formData.imageURI || !formData.price) {
       notification.error("Please fill in all fields");
       return;
@@ -34,14 +34,14 @@ export const NFTMintForm: React.FC<NFTMintFormProps> = ({ onMintSuccess }) => {
 
     try {
       const priceInWei = parseEther(formData.price);
-      
+
       await writeQhatuNFTAsync({
         functionName: "mintNFT",
         args: [formData.name, formData.description, formData.imageURI, priceInWei],
       });
 
       notification.success("NFT minted successfully!");
-      
+
       // Reset form
       setFormData({
         name: "",
@@ -64,7 +64,7 @@ export const NFTMintForm: React.FC<NFTMintFormProps> = ({ onMintSuccess }) => {
     <div className="card bg-base-100 shadow-xl">
       <div className="card-body p-4 sm:p-6">
         <h2 className="card-title text-xl sm:text-2xl lg:text-3xl mb-4 sm:mb-6">Mint New NFT</h2>
-        
+
         <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           <div className="form-control">
             <label className="label">

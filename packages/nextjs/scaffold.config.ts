@@ -1,7 +1,16 @@
 import * as chains from "viem/chains";
 
 export type BaseConfig = {
-  targetNetworks: readonly chains.Chain[];
+  targetNetworks: [
+    // Add your target networks here
+    {
+      id: 11155111, // Sepolia
+      name: "Sepolia",
+      rpcUrl: process.env.NEXT_PUBLIC_RPC_URL_SEPOLIA,
+      blockExplorer: "https://sepolia.etherscan.io",
+    },
+    // Add mainnet or other networks as needed
+  ];
   pollingInterval: number;
   alchemyApiKey: string;
   rpcOverrides?: Record<number, string>;

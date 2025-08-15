@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { NFTGrid } from "./NFTGrid";
+import { NFTMintForm } from "./NFTMintForm";
 import { useAccount } from "wagmi";
 import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
-import { NFTGrid } from "./NFTGrid";
-import { NFTMintForm } from "./NFTMintForm";
 
 interface NFTMetadata {
   name: string;
@@ -66,7 +66,7 @@ export const NFTStore: React.FC = () => {
       if (nft1Metadata.data) allNFTs.push({ tokenId: 1, metadata: nft1Metadata.data as NFTMetadata });
       if (nft2Metadata.data) allNFTs.push({ tokenId: 2, metadata: nft2Metadata.data as NFTMetadata });
       if (nft3Metadata.data) allNFTs.push({ tokenId: 3, metadata: nft3Metadata.data as NFTMetadata });
-      
+
       setNfts(allNFTs);
     } catch (error) {
       console.error("Error fetching NFTs:", error);
@@ -121,13 +121,13 @@ export const NFTStore: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">Create New NFT</h2>
             <button
-              className={`btn ${showMintForm ? 'btn-secondary' : 'btn-primary'} w-full sm:w-auto`}
+              className={`btn ${showMintForm ? "btn-secondary" : "btn-primary"} w-full sm:w-auto`}
               onClick={() => setShowMintForm(!showMintForm)}
             >
-              {showMintForm ? 'Cancel' : 'Mint NFT'}
+              {showMintForm ? "Cancel" : "Mint NFT"}
             </button>
           </div>
-          
+
           {showMintForm && (
             <div className="max-w-2xl mx-auto">
               <NFTMintForm onMintSuccess={handleMintSuccess} />
@@ -140,16 +140,11 @@ export const NFTStore: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">NFT Gallery</h2>
             <div className="text-sm text-base-content/70 text-center sm:text-right">
-              {nfts.length > 0 && `${nfts.length} NFT${nfts.length !== 1 ? 's' : ''} available`}
+              {nfts.length > 0 && `${nfts.length} NFT${nfts.length !== 1 ? "s" : ""} available`}
             </div>
           </div>
-          
-          <NFTGrid
-            nfts={nfts}
-            onBuyNFT={handleBuyNFT}
-            currentUserAddress={connectedAddress}
-            isLoading={isLoading}
-          />
+
+          <NFTGrid nfts={nfts} onBuyNFT={handleBuyNFT} currentUserAddress={connectedAddress} isLoading={isLoading} />
         </div>
 
         {/* Stats Section */}
@@ -157,23 +152,23 @@ export const NFTStore: React.FC = () => {
           <div className="stat bg-base-100 shadow-lg rounded-lg p-4 sm:p-6">
             <div className="stat-title text-sm sm:text-base">Total NFTs</div>
             <div className="stat-value text-primary text-2xl sm:text-3xl lg:text-4xl">
-              {totalSupply?.toString() || '0'}
+              {totalSupply?.toString() || "0"}
             </div>
             <div className="stat-desc text-xs sm:text-sm">Minted on the blockchain</div>
           </div>
-          
+
           <div className="stat bg-base-100 shadow-lg rounded-lg p-4 sm:p-6">
             <div className="stat-title text-sm sm:text-base">For Sale</div>
             <div className="stat-value text-secondary text-2xl sm:text-3xl lg:text-4xl">
-              {tokensForSale ? tokensForSale.length : '0'}
+              {tokensForSale ? tokensForSale.length : "0"}
             </div>
             <div className="stat-desc text-xs sm:text-sm">Available for purchase</div>
           </div>
-          
+
           <div className="stat bg-base-100 shadow-lg rounded-lg p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
             <div className="stat-title text-sm sm:text-base">Connected</div>
             <div className="stat-value text-accent text-2xl sm:text-3xl lg:text-4xl">
-              {connectedAddress ? 'Yes' : 'No'}
+              {connectedAddress ? "Yes" : "No"}
             </div>
             <div className="stat-desc text-xs sm:text-sm">Wallet connection status</div>
           </div>

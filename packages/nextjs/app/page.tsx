@@ -4,8 +4,8 @@ import Link from "next/link";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon, PhotoIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
 import { NFTStore } from "~~/components/NFT";
+import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
@@ -36,8 +36,8 @@ const Home: NextPage = () => {
               <div className="flex flex-col bg-base-100 px-6 sm:px-8 lg:px-10 py-8 sm:py-10 text-center items-center max-w-xs rounded-3xl">
                 <PhotoIcon className="h-6 w-6 sm:h-8 sm:w-8 fill-secondary mb-3" />
                 <p className="text-sm sm:text-base">
-                  Explore and trade NFTs in the{" "}
-                  <span className="font-semibold text-primary">Qhatu NFT Store</span> above.
+                  Explore and trade NFTs in the <span className="font-semibold text-primary">Qhatu NFT Store</span>{" "}
+                  above.
                 </p>
               </div>
               <div className="flex flex-col bg-base-100 px-6 sm:px-8 lg:px-10 py-8 sm:py-10 text-center items-center max-w-xs rounded-3xl">

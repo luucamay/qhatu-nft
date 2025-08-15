@@ -55,9 +55,9 @@ export const FaucetButton = () => {
   return (
     <div className="flex items-center h-full">
       <div className="relative flex flex-col items-center">
-        <button 
-          className="btn btn-secondary btn-sm px-2 rounded-full h-10 flex items-center justify-center" 
-          onClick={sendETH} 
+        <button
+          className="btn btn-secondary btn-sm px-2 rounded-full h-10 flex items-center justify-center"
+          onClick={sendETH}
           disabled={loading}
         >
           {!loading ? (
@@ -66,7 +66,7 @@ export const FaucetButton = () => {
             <span className="loading loading-spinner loading-xs"></span>
           )}
         </button>
-        
+
         {/* Custom inline tooltip that appears below the button */}
         {isBalanceZero && (
           <div className="mt-1 bg-primary text-primary-content text-xs px-2 py-1 rounded whitespace-nowrap z-50">
